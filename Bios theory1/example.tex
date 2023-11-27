@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+
+\usepackage{preamble}
+
+\begin{document}
+
+
+
+\section*{one}
+\begin{example}
+    y = \text{\# of the egg laid},\ 
+    x = \text{\# of eggs that survive}\ 
+    y $\sim poisson(\lambda)$, $x|y\sim binomial(Y,P)$ 
+\end{example}
+
+\begin{enumerate}
+    \item pmf directly: $p(X=x)\to X\sim poission(\lambda P)$ 
+    \item mgfs: \[
+    M_{x}(t)=E(e_{tx})=E(E(e^{tx}Y))=E(pe_{t}+(1-p)^{y})=\sum_{y=0}^{\infty} \frac{s^{y}\lambda^{y}e^{-y}}{y!}=\frac{e^{-\lambda}}{e^{-s\lambda}}\cdot
+    \sum_{y=0}^{\infty} \frac{(sy)^{\lambda}}{y!}=e^{s-1}\lambda
+    \]  
+    recall that mgf of poisson($\lambda$) is $M_{x}(t)e^{\lambda (e^{t}-1)}$, $E(x)=E_{y}(E(X|Y))=E(Yp)=\lambda p$
+\end{enumerate}
+
+\begin{definition}
+    A r.v. X is said to have a mixture distribution if the dist of x depends on a quality that has a dist. 
+\end{definition}
+* In general, hierarchical models led to mixture dist
+
+\begin{theorem}
+    For any two r.v.s X and Y, $V(Y)=E(V(Y|x))+V(E(Y|X)) $ 
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+    V(Y)&=E(Y^{2})-(EY)^{2}\\
+    &= E(E(Y^{2}|X))-E(m(x))^{2} \\
+    &= E(E(Y^{2}|X)-m(x)^{2})+E(m|x)^{2}-E(m(x)^{2}) \\
+    &= E(V(Y|X))+V(m(x)) \\
+    &= E(V(Y|X)+V(E(Y|X)))
+\end{align*}
+
+\end{proof}
+
+
+\begin{example}
+    \[
+    X|Y\sim Binomial(Y,P),\ 
+    Y\sim Poisson 
+    \] 
+\end{example}
+\[
+V(x)=\lambda p
+\]
+\begin{align*}
+   V(x)&=V(E(X|Y))+E(V(X|Y))\\
+   &=V(YP)+E(YP(1-P)) \\
+   &= P^{2}\lambda+P(1-P)\lambda \\
+   &= P^{2}\lambda+P\lambda-p^{2}\lambda \\
+   &= P\lambda \\
+\end{align*}
+
+\section*{Covariance and correction}
+\begin{definition}
+    $cov (X,Y)=E((x-\mu_{x})(Y-\mu_{y}))$, $corr (X,Y)=\frac{cov (X,Y)}{\sigma_{x}\sigma_{y}} $
+\end{definition}
+
+Basic Fact:
+\begin{enumerate}
+    \item $cov (X,Y)=E(XY)-E(X)E(Y) $
+    \item $cov (X,Y)=0 \text{ if X,Y is i.d.}$
+    
+\end{enumerate}
+\begin{proof}
+    \begin{align*}
+        cov (X,Y)&= E((X-\mu_{x}) (Y-\mu_{Y})) \\
+        &= E(XY-\mu_{x}Y-X\mu_{y}+\mu_{x}\mu_{y}) \\
+        &= E( XY )-2 \mu_{x}\mu_{y}-\mu_{x}\mu_{y}\\
+        &= E( XY )  -\mu_{x}\mu_{y} \\
+    \end{align*}
+\end{proof}
+
+
+
+
+\end{document}
