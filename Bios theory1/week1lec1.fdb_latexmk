@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1701063449 "/workspaces/Note/Bios theory1/example.tex" "/workspaces/Note/Bios theory1/example.pdf" "example" 1701063449
+["pdflatex"] 1701125102 "/workspaces/Note/Bios theory1/week1lec1.tex" "/workspaces/Note/Bios theory1/week1lec1.pdf" "week1lec1" 1701125102
   "/etc/texmf/web2c/texmf.cnf" 1701062374 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/codespace/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk" 1701062585 25396 fbec6d3b96b3e6bfd1528c87a29d2c1b ""
   "/home/codespace/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk" 1701062586 40112 98ac39c0a07bafccb29463ff38b31aca ""
@@ -86,14 +86,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1701062397 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1701062404 4878476 4ab3da6225cb4b2307f913bf267174b4 ""
-  "/workspaces/Note/Bios theory1/example.aux" 1701063449 132 bc3a0c30e006b91164efa54472d680dd ""
-  "/workspaces/Note/Bios theory1/example.tex" 1701063448 2203 fe0ff63da1450a2a60da12aec5118170 ""
-  "example.aux" 1701063449 132 bc3a0c30e006b91164efa54472d680dd "pdflatex"
-  "example.tex" 1701063448 2203 fe0ff63da1450a2a60da12aec5118170 ""
+  "/workspaces/Note/Bios theory1/week1lec1.aux" 1701125102 132 bc3a0c30e006b91164efa54472d680dd ""
+  "/workspaces/Note/Bios theory1/week1lec1.tex" 1701125102 2616 a1539ccc2d767330cb62d746036122e5 ""
   "preamble.sty" 1701062220 535 b85f268cbf863db51a9d52496eb56904 ""
+  "week1lec1.aux" 1701125102 132 bc3a0c30e006b91164efa54472d680dd "pdflatex"
+  "week1lec1.tex" 1701125102 2616 a1539ccc2d767330cb62d746036122e5 ""
   (generated)
-  "example.log"
-  "example.pdf"
-  "example.aux"
-  "/workspaces/Note/Bios theory1/example.log"
-  "/workspaces/Note/Bios theory1/example.pdf"
+  "week1lec1.aux"
+  "week1lec1.pdf"
+  "/workspaces/Note/Bios theory1/week1lec1.pdf"
+  "/workspaces/Note/Bios theory1/week1lec1.log"
+  "week1lec1.log"

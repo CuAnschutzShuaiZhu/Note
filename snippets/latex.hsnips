@@ -64,10 +64,10 @@ endsnippet
 #####################################################
 
 
-priority 100
-snippet ... "ldots" iA
-\ldots
-endsnippet
+# priority 100
+# snippet ... "ldots" iA
+# \ldots
+# endsnippet
 
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
@@ -89,7 +89,7 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-snippet enum "Enumerate" b
+snippet enum "Enumerate" iA
 \begin{enumerate}
 	\item $0
 \end{enumerate}
@@ -250,7 +250,7 @@ snippet () "left( right)" iA
 endsnippet
 
 snippet lr "left( right)" iA
- ($1) $0
+( $1 )$0
 endsnippet
 
 snippet lr( "left( right)" i

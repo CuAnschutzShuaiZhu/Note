@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{preamble}
+
+\begin{document}
+
+\begin{example}
+    $X\sim U( 0,1 ) $, $Y_{1}=x^{2} $, $Y_{2}=x^{3} $, $Y_{3}=x^{4} $, $Y_{4}=X^{\frac{1}{2}} $. 
+\end{example}
+$\rho_{XY_{1}}=0.968 $, $\rho_{XY_{2}}=0.916 $, $\rho_{XY_{3}}=0.866 $, $\rho_{XY_{4}}=0.968 $,
+
+
+\section{Covariance of linear combination}
+
+\begin{example}
+    $X \sim N( \mu,\sigma ),\ Y\sim poisson(\lambda),\ Z\sim Gamma( \alpha,\beta ) $, they are i.i.d. $U=X+Y,\ V=Y+Z $, 
+    $?cov(U,V) $
+\end{example}
+$cov( U,V)=\lambda $,  $corr( U, V )=\frac{cov(U,V)}{\sqrt{( \sigma^{2}+\lambda )( \lambda+\alpha \beta )}  } $
+\\
+Either: $cov(UV)=cov(X+Y,Y+Z)=cov(X,Y)+cov(Y,Y)+ cov(Y,Z)+cov(X,Z)=V( Y )=\lambda  $
+\begin{theorem}
+    \begin{align*}
+        & T_x=\sum_{i=1}^m a_i x_i \quad E\left(x_i\right)=\mu_i \quad V\left(x_i\right)={\sigma}_i^2 \\
+        & T_y=\sum_{j=1}^n b_j Y_j \quad E\left(y_i\right)=\gamma_i \quad V\left(x_i\right)={\tau}_i^2\\
+        & E\left(T_x\right)=\sum_{i=1}^m a_i \mu_i  \quad
+        E\left(T_x\right)=\sum_{\hat{j}=1}^n b_j \gamma_1 \\
+        & \operatorname{Cov}\left(T_x, T_y\right)=\sum_{i=1}^m \sum_{i=1}^n a_i b_j \operatorname{Cov}\left(x_i, Y_i\right) . \\
+        & V\left(T_x\right)=\operatorname{Cov}(T x, T x)=\sum_{i=1}^m a_i^2 \sigma_i^2+\sum_{i \neq j} a_i a_j \operatorname{Cov}\left(x_i, x_j\right) \\
+        &
+    \end{align*}
+\end{theorem}
+\begin{example}
+    X and Z i.i.d., let Y= X+Z, $?\rho_{x,y} $
+\end{example}
+
+\begin{align*}
+    \operatorname{cov}(x, x+z) & =\operatorname{cov}(x, x)+\operatorname{cov}(x, z) \\
+& =v(x) \\
+\operatorname{cov}(x, x+z) & =\frac{v(x)}{\sqrt{v(x) \cdot(v(x)+v(z))}}=\frac{1}{\sqrt{1+\frac{\sigma_x^2}{\sigma_z^2}}}
+\end{align*}
+\begin{example}
+    group N men and N women, $T_{N} $ = \# men who made a pair w/ the women had paired them with 
+\end{example}
+
+\begin{align*}
+    & x_i \sim  \operatorname{Ber}\left(\frac{1}{N}\right) \quad V\left(T_N\right)=1 \\
+ V(T n)&=V\left(\sum_{i=1}^n x_i\right)=\sum_{i =j} \sum_j \operatorname{cov}\left( x_i, x_j\right)+\sum_{i \neq j} \sum_j \operatorname{Cov}\left(x_i, x_j\right)\\
+    & =N\left(\frac{1}{N}\left(1-\frac{1}{N}\right)\right)+N(N-1) \operatorname{cov}\left(x_1, x_2\right) \\
+& =\left(1-\frac{1}{N}\right)+N(N-1)\left(E\left(x, x_2\right)-Z\left(x_1\right) Z\left(x_2\right)\right) \\
+& \operatorname{corr}\left(x, x_2\right)=\frac{\operatorname{Cov}\left(x_1, x_2\right)}{\sqrt{v\left(x_1\right) \cdot v\left(x_2\right)}}=\frac{\frac{1}{N(N-1)}-\frac{1}{N_v}}{\frac{1}{N}\left(1-\frac{1}{N}\right)}
+\end{align*}
+\begin{example}
+    An orn contains 5 R, 10 W, 5 B, N = \# of red blue pairs.
+\end{example}
+
+\begin{align*}
+    & Y_i=\operatorname{Ber}\left(P_2\right) \quad P=\frac{\left(\begin{array}{l}
+        5 \\
+        1
+        \end{array}\right)\left(\begin{array}{l}
+        5 \\
+        1
+        \end{array}\right)}{\left(\begin{array}{l}
+        2 \\
+        2
+        \end{array}\right)} \\
+        & E(N)=\sum_{j=1}^{10} E\left(Y_j\right)=10 \cdot \frac{50}{25\cdot 19} \\
+        & v(N)=\sum_{j=1}^{13} v\left(Y_j\right)+\sum_{i\neq j} \operatorname{cov}\left(Y_i, Y_j\right) \\
+        & =10 \frac{50}{20\cdot19}\left(1-\frac{50}{20\cdot19}\right)+10\cdot9\cdot \operatorname{cov}\left(Y_1, Y_2\right)=0.823 \\
+        &
+\end{align*}
+
+
+\end{document}
