@@ -1,0 +1,160 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\usepackage{preamble}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+
+\begin{document}
+
+\begin{example}
+suppose $x$ has a symmetric dist about zero. ie. $P(x<-t)=P(x>t)$ for all $t \geqslant 0$.
+suppose $X$ and $Z$ are independent. let $Y=x^{2}+Z$, find $P_{x}$.
+\end{example}
+
+$$
+\begin{aligned}
+& x=x \cdot I[x>0]+X \cdot I[x=0]+X \cdot I\left[x< 0\right] \\
+& \operatorname{cov}(x, y)=\operatorname{cov}\left(x, x^{2}+Z\right)=\operatorname{cov}\left(x \cdot x^{2}\right)+\operatorname{cov}(x, z) \\
+& \operatorname{cov}\left(x, x^{2}\right)=\operatorname{cov}\left(x_++x_-, x^{2}\right)=\operatorname{cov}\left(x_+, x^{2}\right)+\operatorname{cov}\left(X_-, X^{2}\right)
+\end{aligned}
+$$
+
+By symmetric, $x_{-}=-x_{+}$, Thus $\left(x_{-}, x^{2}\right)=\left(-x_{+}, x^{2}\right)$
+
+$$
+\begin{aligned}
+& \operatorname{cov}\left(x, x_{-}^{2}\right)=\operatorname{cov}\left(-x_{+}, x^{2}\right)=-\operatorname{cov}\left(x_{+}, x^{2}\right) \\
+& \operatorname{cov}\left(x_{+}, x^{2}\right)-\operatorname{cov}\left(x_{+}, x^{2}\right)=0 .
+\end{aligned}
+$$
+
+\section{Bivariate Normal distribution.}
+
+{R.V.S} X and Y has a bivariate normal dist. if their joint density is given by
+
+$$
+f(x, y)=\frac{1}{2 \pi \sigma_{x} \sigma_{y} \sqrt{1-p^{2}}} \exp \left(-\frac{1}{2 (1-p^{2}) }(\left(\frac{x-\mu_{x}}{\sigma_{x}}\right)^{2}-2 p\left(\frac{x-\mu_{x}}{\sigma_{x}}\right)\left(\frac{y-\mu_{y}}{\sigma_{y}}\right)+\left(\frac{y-\mu_{y}}{\sigma_{y}}\right)^{2})\right)
+$$
+
+We will Summarize this as
+
+$$
+\left[\begin{array}{l}
+x \\
+y
+\end{array}\right] \sim N\left(\left[\begin{array}{l}
+\mu_{x} \\
+\mu_{y}
+\end{array}\right],\left[\begin{array}{ll}
+\sigma_{x}^{2} & \sigma_{x y} \\
+\sigma_{x y} & \sigma_{y}^{2}
+\end{array}\right]\right.
+$$
+
+property 
+
+(1) marginal and Conditional Dist.
+
+$$
+\begin{aligned}
+& x \sim N\left(\mu_{x}, \sigma_{x}^{2}\right) \\
+& Y \mid X \sim N(\underbrace{\mu_{y}+\rho \frac{\sigma_{y}}{b_{x}}\left(x-\mu_{x}\right)}_{m(x)=E[Y \mid X]}, b_{y}^{2}\left(1-p^{2}\right))
+\end{aligned}
+$$
+
+
+
+(2) $\operatorname{Corr}(X, Y)=\rho$
+
+\begin{proof}
+    $\operatorname{cov}(X, Y)=\sigma_{x y}=E\left(\left(x-\mu_{x}\right)\left(y-\mu_{y}\right)\right)$
+
+$$
+\begin{aligned}
+& =E_{x}\left(E\left(\left(x-\mu_{x}\right)\left(y-\mu_{y}\right) \mid x\right)\right) \\
+& =E_{x}\left(\left(x-\mu_{x}\right) E\left(y-\mu_{y} \mid x\right)\right) \\
+& =E_{x}\left(\left(x-\mu_{x}\right) \cdot \rho \frac{\sigma_{y}}{\sigma_{x}}\left(x-\mu_{x}\right)\right) \\
+& =E_{x}\left(\rho \frac{\sigma_{y}}{\sigma_{x}}\left(x-\mu_{x}\right)^{2}\right) \\
+& =\rho \frac{\sigma_{y}}{\sigma_{x}} \cdot \sigma_{x}^{2}=\rho \sigma_{y} \cdot \sigma_{x}
+\end{aligned}
+$$
+
+\end{proof}
+
+
+(3) regression function.
+
+Define $\alpha=\mu_{y}, \beta=\rho \frac{\sigma_{y}}{\sigma_{x}}, {\sigma}_{\epsilon}=\sigma_{y} \sqrt{1-p^{2}}$ and $\gamma=\mu_{y}-\beta \mu_{x}$
+
+LBE of $Y$ given $X$ is the conditional mean.
+
+$$
+\begin{aligned}
+& m(x)=E(Y \mid X)=\mu_{Y}+\left(\rho \frac{\sigma_{y}}{\sigma_{x}}\right)\left(X-\mu_{x}\right)=\gamma+\beta x \\
+& V^{2}(x)=V(Y \mid X=x)=\sigma_{y}^{2}\left(1-\rho^{2}\right)=\sigma_{\epsilon}^{2} \leftarrow \text { constant }
+\end{aligned}
+$$
+
+(4) $(x, y)$ are independent if and only if $\rho=0$.
+
+proof $f(x, y)=f(x) \cdot f(y)$.
+\begin{definition}
+    The standard deviation line is dentine as the following
+\end{definition}
+
+$$
+y=\mu_{y}+\frac{\sigma_{y}}{\sigma_{x}}\left(x-\mu_{x}\right) \text { or } \frac{y-\mu_{y}}{\sigma_{y}}=\frac{x-\mu_{x}}{\sigma_{x}}
+$$
+
+(5) Let $u=a x+b y+c$ and $V=d X+e^{y}+f$, Then (u, v) is bivariate normal whose dist is completely specified by $\mu_{u}, \mu_{v}, \sigma_{u}^{2}, \sigma_{v}^{2}, \sigma_{u v}$ 
+
+Note: $(X, Y) \sim$ Bivariate normal $\Rightarrow X \sim $ Normal, Y $\sim$ Normal
+
+\begin{theorem}
+    Cauchy swartzs inequality
+\end{theorem}
+
+$$
+\left|E\left(X Y\right)\right| \leq E(|X Y|) \leq E\left(X^{2}\right)^{\frac{1}{2}} E\left(Y^{2}\right)^{1 / 2}
+$$
+
+Corollary: $\left|\rho_{x y}\right| \leq 1$
+
+\begin{proof}
+    let $a=x-\mu_{x}$ ard $b=y-\mu_{y}$
+
+$$
+\begin{aligned}
+& |\operatorname{cov}(a, b)|=|E(a, b)| \leq E\left(a^{2}\right)^{1 / 2} E\left(b^{2}\right)^{1 / 2}=\left(\sigma_{x}^{2}\right)^{1 / 2} \cdot\left(\sigma_{y}^{2} y\right)^{1 / 2} \\
+& \Rightarrow \frac{|\operatorname{cov}(x, y)|}{\sigma_{x} b_{y}} \leq 1
+\end{aligned}
+$$
+
+\end{proof}
+
+
+\begin{theorem}
+    Jensen's inequality. For any riv. $x$, if $g(x)$ is a convex function. then $E(g(x)) \geqslant g(E(x))$ if and only if $g(x)=a+b x$. 
+\end{theorem}
+
+\begin{proof}
+    let $((x)$ be the tangent line tog (x) at $E(x)$.
+
+$$
+E(g(x)) \geqslant E(l(x))=((E(x))=g(E(x))
+$$
+\end{proof}
+
+\begin{example}
+    Let $g$ in $)=x^{2}$, then $E\left(x^{2}\right)$ y $E(x)^{2}$
+
+\end{example}
+
+\end{document}
