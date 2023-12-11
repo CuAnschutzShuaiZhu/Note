@@ -1,0 +1,160 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{preamble}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+\section*{Chapt 5 - property of a Random sample.}
+
+Def: The R.V. $X_{1} \ldots X_{n}$ are called a random sample of size $n$ if they are iid.
+
+\begin{example}
+  Suppose $x$ is a Random draw from a population and $x$ has density $f$.
+\end{example}
+
+if $x_{i}, i=1,2 \cdots n$ are iid and. $x_{i} z_{i} x$, then.
+
+$$
+f\left(x, \ldots x_{n}\right)=\prod_{i=1}^{n} f\left(x_{i}\right)
+$$
+
+Comment: In most case we don't use joint density of the sample, but rather use the iid Property directly
+
+\begin{example}
+  $X_{i}$ are ind, $X_{i} \sim \operatorname{Exp}($ rate $= \lambda), y=\min \left(x_{i}\right)$
+\end{example}
+
+$F_{y}(y)=P(Y \leq y)=1-P(Y>y)=1-\prod_{i=1}^{n} P\left(x_{i}>y\right) \quad x^{\prime} s$ are iid
+
+$=1-e^{-\lambda n y}$, cdt of $\exp (\lambda n)$
+
+$$
+f_{y}(y)=\frac{d}{d x} F_{y}(y)
+$$
+
+\begin{definition}
+  Sampling w/o replacement from a finite population is called simple random sampling.
+\end{definition}
+
+\begin{itemize}
+  \item In most Cases, Samples are not independent.
+\end{itemize}
+
+\begin{definition}
+  Suppose $x_{1}, x_{n}$ is random sample, Arr r.V.Y of the form $Y=T\left(X_{1}, X_{n}\right)$ is coiled a statistic. The dist of $Y$ is called. its sampling distribution. The dist of $Y$ is called. its Sampling distribution.
+\end{definition}
+
+Comment: the supply dit con be found anally tally for unity a few statistics. and a few populations (eg. exponential, normal.)
+
+\begin{theorem}
+  Suppose $x_{i}, 1 \leq i \leq n$, are $\operatorname{iid} \omega \mid E\left(x_{i}\right)=\mu, v\left(x_{i}\right)=\sigma^{2}$.
+
+(a) $E[\bar{x}]=\mu$.
+
+(b). $V(\bar{x})=\sigma^{2} / n$
+
+(c) $E\left(S_{n}^{2}\right)=\sigma^{2}$.
+\end{theorem}
+
+\begin{proof}
+  Define $\hat{\sigma}^{2}=\frac{1}{n} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}, \S_{n}^{2}=\frac{n}{n-1} \hat{\sigma}^{2}$
+
+$$
+\begin{aligned}
+E\left(\hat{\sigma}^{2}\right) & =\frac{1}{n} E\left(\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}\right)=\frac{1}{n} E\left[\sum_{i=1}^{n} x_{i}^{2}-n(\bar{x})^{2}\right] \\
+& =\frac{1}{n}\left[\sum_{i=1}^{n}\left(\sigma^{2}+\mu^{2}\right)-n\left(\frac{\sigma^{2}}{n}+\mu^{2}\right)\right] \\
+& =\frac{n-1}{n} \bar{\sigma}^{2}
+\end{aligned}
+$$
+\end{proof}
+
+\section*{5.4 Order statistic}
+
+\begin{definition}
+  The order statistics of a random sample $X_{1} m X_{n}$ core the sample values placed in ascending order and are denoted $X_{(1)}, X_{(2)} \sim X_{(n)}$
+  $
+  X_{(n)} \leq X_{(2)} \leq m \leq X_{(n)}
+  $
+\end{definition}
+
+
+
+In Particular, $X_{(1)}=minX_{i} \quad X_{(n)}=\max X_{i}$.
+
+The Sample range is defined $R=x_{(n)}-x_{(1)}$
+
+The sample median, denoted $M$, is defined. $M=\left\{\begin{array}{l}x_{\left(\frac{n+1}{2}\right)} \ \text{if n is odd} \\ (x_{\frac{n}{2}}+x_{\frac{n}{2}+1})/2 \ \text{if n i even} \end{array}\right.$
+
+
+
+The notation $\{b\}$ in a subscript is defined to be number b rounded. to the nearest number
+
+
+\begin{example}
+  $
+\{b\}=i \text { where } i-0.5 \leq b<i+0.5 \text {. }
+$
+\end{example}
+
+\begin{example}
+  uniform $(0,1)$ order statistics. wish to find $(a) f_{u(k)},(b) f_{u(k), u(i)}$
+
+\end{example}
+
+$$
+\begin{aligned}
+& \text { (a). Let } 1_{A}(t)= \begin{cases}1 & \text { if } t \in A \\
+0 & \text { ow. }\end{cases} \\
+& 1_{\left[0,t\right]}\left(u_{k}\right) \sim \operatorname{Ber}(t)
+\end{aligned}
+$$
+
+Define $B_{n}(t)=\sum_{i=1}^{n} 1_{[0, t]}\left(U_{i}\right)=\operatorname{Binomial}$ $(n, t)$.
+Event identify $\left[u_{(k)}>t\right]=\left[B_{n}(t)<k\right]$
+$$
+\begin{aligned}
+F_{u_{(k)}}(t) & =P\left(u_{(k)} \leq t\right)=P\left(B_{n}(t) \geqslant k\right)=\sum_{i=1}^{n}\left(\begin{array}{l}
+n \\
+1
+\end{array}\right) t^{i}(1-t)^{n-i}, \\
+f_{u(k)}(t) & =\frac{d}{d t} F_{u(k)}(t) \\
+& =\sum_{i=1}^{n} \frac{n !}{(n-i) ! i !} i t^{i-1}(1-t)^{k-i}-\sum_{i=1}^{n} \frac{n !}{(n-i) !i!}(n-i) t^{i}(1-t)^{n-i-1} \\
+& =\frac{n !}{(n-k) !(1k-1) !} t^{k-1}(1-t)^{n-k}, 0<t<1
+\end{aligned}
+$$
+
+However, we can obtain $f_{u(k)}$ by a more important and elementary "think method"
+$\operatorname{argnmen} t$.
+
+$f_{u(k)}(t) \leftarrow$ prob density of having $u_{k}=t$. Then having $u_{1}$ \dots  $u_{k-1} \ all <t$ and $u_{k+1} m u_{n}$ all $<t$
+
+$$
+\begin{aligned}
+f_{n(k)}(t) & =\left(\begin{array}{c}
+n \\
+k-1,1, n-k
+\end{array}\right) f_{u}(t) \cdot\left(F_{n}(t)\right)^{k-1} \cdot\left(1-F_{n}(t)\right)^{n-k} . \\
+& \downarrow \\
+& \frac{n !}{(k-1) ! 1 !(n-k) !}
+\end{aligned}
+$$
+
+(b) $f_{u(k), u_{(i)}}(s, t)=\left(\begin{array}{c}
+  n \\
+  k-1,1,,i-k,1, n-i
+  \end{array}\right) s^{k-1} \cdot(t-s)^{i-1-k}(1-t)^{n-i}$,
+$
+0 \leq s \leq t \leq 1
+$
+
+
+\end{document}

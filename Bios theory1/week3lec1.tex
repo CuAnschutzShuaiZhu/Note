@@ -1,0 +1,119 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{preamble}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+$u_{1}, \ldots u_{n} \sim $ uniform $(0,1)$
+
+$$
+\begin{aligned}
+& f_{u_{(k)}}(t)=\left(\begin{array}{c}
+n \\
+k-1,1, n-k
+\end{array}\right) t^{k-1}(1-t)^{n-k}, 0 \leq t \leq 1 \\
+& f_{u(i)}, u_{(k)}(s, t)=\left(\begin{array}{l}
+n \\
+i-1,1, k-i-1,n-k
+\end{array}\right) s^{i-1}(t-s)^{k-i-1}(1-t)^{n-k}, 0 \leq s \leq t \leq 1
+\end{aligned}
+$$
+
+(c) $f_{u(1) \ldots u(n)}\left(s_{1}, s_{2}, s_{n}\right)=\left(\begin{array}{l}
+    n \\
+    1,1 \ldots  ,1
+    \end{array}\right) f\left(s_{1}\right) \cdots f\left(s_{n}\right)$
+
+$$
+=n ! \cdot 1 \cdot 1 \cdot 1=n ! \quad 0 \leqslant S_{1} \leq S_2 \quad S_{n} \leqslant 1
+$$
+
+\begin{theorem}
+for any random sample $x_{1}, x_{n}$ of cont .r.v.S having $c d f F$ and density $f$, the order statistics $X_{(k)}, 
+1 \leq k \leq n$, has density $.f_{x(k)}(t)=\left(\begin{array}{l}
+    n \\
+    k-1,1,n-k
+    \end{array}\right) F(t)^{k-1} f(t)[1-F(t)]^{n-k}$ 
+for all $t$. and the joint density of $\left(X_{(i)}, X_{(k)}\right)$ is
+
+Finally, the joint density of $\left(X_{(1)}, X_{(2)} \cdots X_{(0)}\right)$
+    
+    $$
+    f_{x_{(1)} \ldots x_{(n)}}\left(S_{1}, S_{2}, \cdots S_{n}\right)=n ! f\left(S_{1}\right) 
+    \cdot f\left(S_{2}\right) \cdots f\left(S_{n}\right)=n ! \prod_{i=1}^{n} f\left(S_{i}\right), 
+    S_{1}\leq S_{2}\leq \ldots S_{k}
+    $$
+    
+\end{theorem}
+Comment: the prob of any ties is zero, whenever $F$ is continuum dist. 
+\begin{example}
+    How would you find the list of the sample Range?
+\end{example}
+
+$$
+x_{1}\ldots x_{n} \sim   F \quad R_{n}=x_{(n)}-x_{(1)}
+$$
+
+(1) $f_{X(1), X_{(n)}}$
+
+(2) $\left(X_{(1)}, X_{(n)}\right) \rightarrow\left(X_{(1)}, R_{n}\right)$
+
+(3) marginal $R_{n}$.
+
+\begin{example}
+    ( by stems reliability)
+
+$Y_{1}, Y_{2} \ldots=$ life time of sample electric components (Suppisise indepenonont) 
+$
+\sim \operatorname{Exp}(\text { mean }=\theta)
+$
+\end{example} 
+
+
+suppose we organize these in a more complicated system.
+
+$T=$ life time of the system.
+
+(a) Simple series circuit. w/ m component.
+
+$$
+\begin{aligned}
+T & =\min \left(Y_{1}, Y_{m}\right) \\
+F_{T}(t) & =P(T \leq t)=1-P(T>t)=1-\left(1-F_{y}(t)\right)^{m}=1-e^{-m t / \theta}, t >0
+\end{aligned}
+$$
+
+(b) Simple parallel circus w/ m component.
+
+$$
+\begin{aligned}
+T & =\max \left(Y_{1}, \ldots Y_{m}\right) \\
+F_{T}(t) & =P(T \leq t)=F_{Y}(t)^{m}=\left(1-e^{-t / \theta}\right)^{m}, t>0 .
+\end{aligned}
+$$
+
+(C) Parallel systems in series
+
+m units are in series and each unit has $k$ components in parallel.
+$ Y_{i j}=j^{\text {th }} \text { comport of } i^{\text {th }} \text { unit. }$
+$ T=\min _{1 \leq i \leq m}\left(\max _{1 \leq j \leq n}\left(Y_{i j}\right)\right) 
+$
+$$
+\begin{aligned}
+F_{T}(t)&= 1-\left[1-F_{u(t)}(t)\right]^{m} \\
+&=1-\left[1-\left(1-e^{-t / \theta}\right)^{k}\right]^{m}, t>0
+\end{aligned}
+$$
+
+
+\end{document}
